@@ -17,7 +17,7 @@ import torch.nn.functional as F
 parser = argparse.ArgumentParser()
 parser.add_argument('--aff_path', type=str, default='datasets/affectnet/', help='AffectNet dataset path.')
 parser.add_argument('--raf_path', type=str, default='datasets/RAF-DB/', help='RAF-DB dataset path.')
-parser.add_argument('--batch_size', type=int, default=256, help='Batch size.')
+parser.add_argument('--batch_size', type=int, default=128, help='Batch size.')
 parser.add_argument('--workers', default=4, type=int, help='Number of data loading workers.')
 parser.add_argument("--confusion", action="store_true", default=True, help="show confusion matrix")
 args = parser.parse_args()
@@ -31,13 +31,13 @@ def test():
     else:
         device = torch.device("cpu")
         
-    model = IWPN()#读取IEBN模型 
+    model = IWPN()
     
     """ #load model -RAF-DB
-    checkpoint = torch.load('./checkpoints/rafdb-85.30-0.0837.pth') """
+    checkpoint = torch.load('./checkpoints/rafdb-83.80-0.0796.pth') """
     
     #load model -AffectNet
-    checkpoint = torch.load('./checkpoints/affectnet-60.71-0.0876.pth')
+    checkpoint = torch.load('./checkpoints/affectnet-62.57-0.1273.pth')
     
     model.load_state_dict(checkpoint['model_state_dict'],strict=True)
     model.to(device)
