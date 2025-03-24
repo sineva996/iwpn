@@ -1,5 +1,5 @@
-# IWPN:
-A PyTorch implementation of the [IWPN].
+# IFP-Net:
+A PyTorch implementation of the [IFT-Net].
 
 ##requirements
 certifi==2021.10.8
